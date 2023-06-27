@@ -6,25 +6,26 @@ using System.Threading.Tasks;
 
 namespace BasicCSharphProgrammingsDay5
 {
-    internal class Program
+    internal class HarmonicNumber
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Enter the power value N:");
-            int n = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Enter a number to find its prime factors:");
+            int number = Convert.ToInt32(Console.ReadLine());
 
-            if (n >= 0 && n < 31)
+            Console.WriteLine("Prime factors of " + number + ":");
+            for (int i = 2; i * i <= number; i++)
             {
-                for (int i = 0; i <= n; i++)
+                while (number % i == 0)
                 {
-                    int result = (int)Math.Pow(2, i);
-                    Console.WriteLine("2^" + i + " = " + result);
+                    Console.WriteLine(i);
+                    number /= i;
                 }
             }
-            else
-            {
-                Console.WriteLine("Invalid input. N should be between 0 and 30.");
-            }
+
+            if (number > 1)
+                Console.WriteLine(number);
+        }
         }
     }
-}
+
